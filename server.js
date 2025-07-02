@@ -19,6 +19,10 @@ app.all('*', (req, resp, next) => {
   return resp.status(500).json({ ststus: httpStatusText.ERROR, message: 'This resource is not available', code: 500 })
 })
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: '✅ Welcome To Expense Tracker Backend Server!' });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
